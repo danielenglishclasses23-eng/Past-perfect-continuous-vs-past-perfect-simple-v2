@@ -1,0 +1,1799 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Family - B1 Masterclass & Assessment</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                        },
+                        accent: {
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(13, 148, 136, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(15, 23, 42, 0.95) 0px, transparent 100%);
+            background-attachment: fixed;
+        }
+
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .glass-input {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        /* 3D Flip Cards */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .transform-style-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .backface-hidden {
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
+        .flip-card.flipped .transform-style-3d {
+            transform: rotateY(180deg);
+        }
+
+        /* Animated Equalizer */
+        @keyframes eqPulse {
+            0%, 100% { height: 6px; }
+            50% { height: 26px; }
+        }
+        .eq-bar {
+            animation: eqPulse 1.2s infinite ease-in-out;
+        }
+        .eq-bar:nth-child(2) { animation-delay: 0.15s; }
+        .eq-bar:nth-child(3) { animation-delay: 0.3s; }
+        .eq-bar:nth-child(4) { animation-delay: 0.45s; }
+        .eq-bar:nth-child(5) { animation-delay: 0.2s; }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.5);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(13, 148, 136, 0.4);
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(13, 148, 136, 0.7);
+        }
+    </style>
+</head>
+<body class="text-slate-100 min-h-screen flex flex-col font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- MAIN CONTAINER -->
+    <div class="max-w-6xl w-full mx-auto p-3 sm:p-6 flex-1 flex flex-col justify-between gap-5">
+
+        <!-- HEADER AREA -->
+        <header class="glass-panel rounded-3xl p-5 shadow-2xl space-y-4">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 pb-4 border-b border-white/10">
+                <!-- Branding -->
+                <div class="flex items-center gap-3.5">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-500 to-accent-500 p-0.5 flex items-center justify-center shadow-lg shadow-brand-500/20 shrink-0">
+                        <div class="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center">
+                            <i class="fa-solid fa-users text-transparent bg-clip-text bg-gradient-to-tr from-brand-500 to-accent-500 text-2xl"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h1 class="font-display font-extrabold text-2xl text-white tracking-tight leading-none">English Family</h1>
+                            <span class="bg-brand-500/20 text-brand-500 border border-brand-500/30 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase">B1 Assessment</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1">Interactive Mastery, Reading, Ads Matcher, Listening & Past Tenses</p>
+                    </div>
+                </div>
+
+                <!-- Student Meta Inputs -->
+                <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+                    <div class="relative flex-1 md:w-56">
+                        <i class="fa-solid fa-user-pen absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                        <input type="text" id="studentNameInput" placeholder="Enter Student Full Name..." 
+                               oninput="updateGlobalProgress()"
+                               class="w-full glass-input text-xs font-semibold text-white pl-9 pr-3 py-2.5 rounded-xl focus:outline-none focus:border-brand-500 transition placeholder:text-slate-500">
+                    </div>
+                    <div class="flex items-center gap-2 glass-card px-3.5 py-2.5 rounded-xl border border-white/10 text-xs text-slate-300">
+                        <i class="fa-solid fa-calendar-day text-brand-500"></i>
+                        <span id="autoDateDisplay" class="font-mono font-bold text-white">--/--/----</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global Progress Bar -->
+            <div class="space-y-1.5">
+                <div class="flex justify-between items-center text-xs font-bold">
+                    <span class="text-slate-400 flex items-center gap-1.5">
+                        <i class="fa-solid fa-chart-line text-brand-500"></i> Overall Test Progress
+                    </span>
+                    <span id="progressTextDisplay" class="text-brand-500 font-mono">0% (0 / 35 Questions)</span>
+                </div>
+                <div class="w-full bg-slate-900 h-2.5 rounded-full overflow-hidden p-0.5 border border-white/5 shadow-inner">
+                    <div id="progressBarFill" class="h-full bg-gradient-to-r from-brand-500 via-teal-400 to-accent-500 rounded-full transition-all duration-300 w-0"></div>
+                </div>
+            </div>
+
+            <!-- Page Stepper Tabs -->
+            <nav class="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs font-bold" id="topTabsContainer">
+                <button onclick="switchTab('intro')" id="tab-intro" class="tab-btn px-4 py-2.5 rounded-xl flex items-center gap-2 transition shrink-0 bg-slate-800 text-slate-300 hover:bg-slate-700">
+                    <i class="fa-solid fa-compass"></i> Intro
+                </button>
+                <button onclick="switchTab('part1')" id="tab-part1" class="tab-btn px-4 py-2.5 rounded-xl flex items-center gap-2 transition shrink-0 bg-slate-800 text-slate-300 hover:bg-slate-700">
+                    <i class="fa-solid fa-book-open"></i> First Part: Reading
+                </button>
+                <button onclick="switchTab('part2')" id="tab-part2" class="tab-btn px-4 py-2.5 rounded-xl flex items-center gap-2 transition shrink-0 bg-slate-800 text-slate-300 hover:bg-slate-700">
+                    <i class="fa-solid fa-rectangle-ad"></i> Second Part: Ads Matcher
+                </button>
+                <button onclick="switchTab('part3')" id="tab-part3" class="tab-btn px-4 py-2.5 rounded-xl flex items-center gap-2 transition shrink-0 bg-slate-800 text-slate-300 hover:bg-slate-700">
+                    <i class="fa-solid fa-headphones"></i> Third Part: Listening
+                </button>
+                <button onclick="switchTab('part4')" id="tab-part4" class="tab-btn px-4 py-2.5 rounded-xl flex items-center gap-2 transition shrink-0 bg-slate-800 text-slate-300 hover:bg-slate-700">
+                    <i class="fa-solid fa-chalkboard-user"></i> Fourth Part: Grammar Guide
+                </button>
+                <button onclick="switchTab('part5')" id="tab-part5" class="tab-btn px-4 py-2.5 rounded-xl flex items-center gap-2 transition shrink-0 bg-slate-800 text-slate-300 hover:bg-slate-700">
+                    <i class="fa-solid fa-pen-nib"></i> Fifth Part: Grammar Test (25Q)
+                </button>
+                <button onclick="switchTab('part6')" id="tab-part6" class="tab-btn px-4 py-2.5 rounded-xl flex items-center gap-2 transition shrink-0 bg-slate-900/60 text-slate-500 cursor-not-allowed border border-white/5" title="Locked until all 35 questions are completed">
+                    <i class="fa-solid fa-lock text-rose-400" id="resultsTabLockIcon"></i> Sixth Part: Results
+                </button>
+            </nav>
+        </header>
+
+        <!-- MAIN DYNAMIC CONTENT CONTAINER -->
+        <main class="glass-panel rounded-3xl p-6 sm:p-8 flex-1 flex flex-col justify-between shadow-2xl relative">
+
+            <!-- PAGE STEP BREADCRUMB HEADER -->
+            <div class="flex items-center justify-between pb-4 mb-6 border-b border-white/10 text-xs font-semibold">
+                <div class="flex items-center gap-2 text-slate-400">
+                    <span id="pageStepBadge" class="bg-brand-500/20 text-brand-500 font-bold px-3 py-1 rounded-full border border-brand-500/30">
+                        Page 0 of 6
+                    </span>
+                    <span id="pageTitleBreadcrumb" class="text-white font-bold hidden sm:inline">Overview & Instructions</span>
+                </div>
+                <div class="flex items-center gap-1.5" id="wizardDotsContainer">
+                    <div id="dot-intro" class="w-2.5 h-2.5 rounded-full bg-brand-500 transition-all"></div>
+                    <div id="dot-part1" class="w-2.5 h-2.5 rounded-full bg-slate-700 transition-all"></div>
+                    <div id="dot-part2" class="w-2.5 h-2.5 rounded-full bg-slate-700 transition-all"></div>
+                    <div id="dot-part3" class="w-2.5 h-2.5 rounded-full bg-slate-700 transition-all"></div>
+                    <div id="dot-part4" class="w-2.5 h-2.5 rounded-full bg-slate-700 transition-all"></div>
+                    <div id="dot-part5" class="w-2.5 h-2.5 rounded-full bg-slate-700 transition-all"></div>
+                    <div id="dot-part6" class="w-2.5 h-2.5 rounded-full bg-slate-900 opacity-50 transition-all"></div>
+                </div>
+            </div>
+
+            <!-- MODAL / ALERT NOTIFICATION -->
+            <div id="modalNotice" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+                <div class="glass-panel border border-brand-500/30 rounded-3xl max-w-md w-full p-6 text-center shadow-2xl">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-500/20 text-brand-500 flex items-center justify-center mx-auto mb-4 text-xl border border-brand-500/30">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2" id="modalNoticeTitle">Notice</h3>
+                    <p class="text-xs text-slate-300 mb-6 leading-relaxed" id="modalNoticeBody">Description goes here...</p>
+                    <button onclick="closeModalNotice()" class="w-full bg-gradient-to-r from-brand-600 to-accent-600 hover:from-brand-500 hover:to-accent-500 text-white text-xs font-bold py-3 rounded-xl shadow-lg transition">
+                        Acknowledge
+                    </button>
+                </div>
+            </div>
+
+            <!-- PAGE 0: INTRODUCTION -->
+            <div id="page-intro" class="page-content space-y-6">
+                <div class="relative bg-gradient-to-r from-brand-900/60 via-slate-900 to-accent-950/60 rounded-3xl p-8 border border-brand-500/20 overflow-hidden shadow-xl">
+                    <div class="absolute -right-6 -bottom-10 opacity-10 text-9xl font-display font-black text-brand-400">B1</div>
+                    <span class="inline-flex items-center gap-1.5 bg-brand-500/20 text-brand-400 border border-brand-500/30 text-xs font-bold px-3 py-1 rounded-full mb-3">
+                        <i class="fa-solid fa-graduation-cap"></i> Level B1 English Assessment
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-white tracking-tight mb-3">
+                        Welcome to English Family Test
+                    </h2>
+                    <p class="text-slate-300 text-xs sm:text-sm max-w-2xl leading-relaxed">
+                        This webpage is structured into 6 step-by-step parts: B1 Reading Comprehension, Advertisement Matcher, American Accent Listening Practice, Grammar Masterclass, 25 Grammar Test Questions, and a Unlocked Results & Teacher Submission Page.
+                    </p>
+                </div>
+
+                <!-- Test Breakdown Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="glass-card p-5 rounded-2xl border border-white/5">
+                        <div class="w-10 h-10 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center text-lg mb-3">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+                        <h3 class="font-bold text-sm text-white mb-1">First Part: Reading</h3>
+                        <p class="text-xs text-slate-400">Read "The Eco-Friendly Bakery in Portland" and answer 5 comprehension questions.</p>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-2xl border border-white/5">
+                        <div class="w-10 h-10 rounded-xl bg-accent-500/20 text-accent-400 flex items-center justify-center text-lg mb-3">
+                            <i class="fa-solid fa-rectangle-ad"></i>
+                        </div>
+                        <h3 class="font-bold text-sm text-white mb-1">Second Part: Ads Matcher</h3>
+                        <p class="text-xs text-slate-400">Match 5 personal scenarios with short notices & commercial ads (A to E).</p>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-2xl border border-white/5">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg mb-3">
+                            <i class="fa-solid fa-headphones"></i>
+                        </div>
+                        <h3 class="font-bold text-sm text-white mb-1">Third Part: Listening Practice</h3>
+                        <p class="text-xs text-slate-400">Listen to a 1:30 min American audio story and answer 5 comprehension questions.</p>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-2xl border border-white/5">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg mb-3">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <h3 class="font-bold text-sm text-white mb-1">Fourth Part: Grammar Explanation</h3>
+                        <p class="text-xs text-slate-400">Past Perfect Simple vs Continuous explanations, comparison tables & 3D flashcards.</p>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-2xl border border-white/5">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-lg mb-3">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
+                        <h3 class="font-bold text-sm text-white mb-1">Fifth Part: Grammar Test</h3>
+                        <p class="text-xs text-slate-400">20 Multiple Choice Questions + 5 Fill-in-the-blank open conjugations (25 Qs total).</p>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-2xl border border-white/5">
+                        <div class="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center text-lg mb-3">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <h3 class="font-bold text-sm text-white mb-1">Sixth Part: Unlocked Results</h3>
+                        <p class="text-xs text-slate-400">Unlocked after answering all 35 questions. Direct submission button to Danielenglishclasses23@gmail.com.</p>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex justify-end">
+                    <button onclick="switchTab('part1')" class="bg-gradient-to-r from-brand-600 to-accent-600 hover:from-brand-500 hover:to-accent-500 text-white font-bold px-8 py-3.5 rounded-2xl shadow-xl transition flex items-center gap-2 text-sm">
+                        <span>Start Assessment (First Part)</span> <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- PAGE 1: FIRST PART - READING COMPREHENSION -->
+            <div id="page-part1" class="page-content hidden space-y-6">
+                <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                    <div>
+                        <span class="text-xs font-bold text-brand-400 uppercase tracking-widest block">Page 1 of 6</span>
+                        <h2 class="text-xl font-display font-bold text-white">First Part: Reading Comprehension</h2>
+                    </div>
+                    <span class="text-xs font-bold bg-brand-500/20 text-brand-400 border border-brand-500/30 px-3 py-1 rounded-full">5 Questions</span>
+                </div>
+
+                <!-- Passage Card -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 space-y-3 text-slate-300 text-xs sm:text-sm leading-relaxed">
+                    <h3 class="text-base font-bold text-white flex items-center gap-2 border-b border-white/5 pb-2">
+                        <i class="fa-solid fa-bread-slice text-brand-400"></i> The Eco-Friendly Bakery in Portland
+                    </h3>
+                    <p>
+                        In the heart of Portland, Oregon, the Miller family operates *Green Harvest Bakery*, a neighborhood shop that has gained widespread recognition for its commitment to zero-waste baking. Before opening the bakery four years ago, Arthur Miller had worked for over fifteen years as a corporate logistics manager. He decided to leave his office job because he had grown tired of high-stress deadlines and wanted to build a business that served his local community directly.
+                    </p>
+                    <p>
+                        Every morning at 4:00 AM, Arthur and his daughter Sarah begin preparing organic sourdough bread using solar-powered ovens. Prior to purchasing these specialized electric ovens, Arthur had spent months researching renewable energy systems to ensure their bakery would operate with minimal carbon emissions. Sarah, who had studied sustainable agriculture in college before joining her father, coordinates with nearby farmers to source 100% locally grown organic grains.
+                    </p>
+                    <p>
+                        In addition to their eco-conscious cooking practices, *Green Harvest Bakery* donates all unsold bread to local shelters at the end of each afternoon. By 6:00 PM yesterday, they had already served over two hundred customers and distributed fifty loaves of artisan sourdough to community centers. Arthur notes that although organic ingredients are more costly, customer support has been overwhelming because local residents appreciate their environmental values.
+                    </p>
+                </div>
+
+                <!-- Part 1 Questions Container -->
+                <div id="container-part1" class="space-y-4"></div>
+
+                <div class="flex justify-between items-center pt-6 border-t border-white/10">
+                    <button onclick="switchTab('intro')" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-5 py-2.5 rounded-xl transition text-xs flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-left"></i> Previous: Intro
+                    </button>
+                    <button onclick="switchTab('part2')" class="bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 py-2.5 rounded-xl transition text-xs flex items-center gap-2">
+                        Next: Second Part (Ads Matcher) <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- PAGE 2: SECOND PART - ADVERTISEMENT MATCHING -->
+            <div id="page-part2" class="page-content hidden space-y-6">
+                <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                    <div>
+                        <span class="text-xs font-bold text-brand-400 uppercase tracking-widest block">Page 2 of 6</span>
+                        <h2 class="text-xl font-display font-bold text-white">Second Part: Advertisement Matcher</h2>
+                    </div>
+                    <span class="text-xs font-bold bg-brand-500/20 text-brand-400 border border-brand-500/30 px-3 py-1 rounded-full">5 Questions</span>
+                </div>
+
+                <!-- 5 Advertisement Banners -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="glass-card p-4 rounded-xl border border-amber-500/30 relative">
+                        <span class="absolute top-2.5 right-2.5 bg-amber-500/20 text-amber-300 font-bold text-[10px] px-2 py-0.5 rounded border border-amber-500/30">Notice A</span>
+                        <h4 class="font-bold text-amber-200 text-xs mb-1"><i class="fa-solid fa-dumbbell mr-1"></i> 24/7 Student Fitness</h4>
+                        <p class="text-[11px] text-slate-300">Special student rate: $20/month with valid ID. Includes modern weights, cardio machines, and morning sauna access. Zero sign-up fees!</p>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-xl border border-teal-500/30 relative">
+                        <span class="absolute top-2.5 right-2.5 bg-teal-500/20 text-teal-300 font-bold text-[10px] px-2 py-0.5 rounded border border-teal-500/30">Notice B</span>
+                        <h4 class="font-bold text-teal-200 text-xs mb-1"><i class="fa-solid fa-laptop-code mr-1"></i> Refurbished Tech Store</h4>
+                        <p class="text-[11px] text-slate-300">Pre-owned 2024 laptops and tablets with 1-year full warranty. Perfect for university coders and remote writers. 25% cash discount.</p>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-xl border border-indigo-500/30 relative">
+                        <span class="absolute top-2.5 right-2.5 bg-indigo-500/20 text-indigo-300 font-bold text-[10px] px-2 py-0.5 rounded border border-indigo-500/30">Notice C</span>
+                        <h4 class="font-bold text-indigo-200 text-xs mb-1"><i class="fa-solid fa-house-user mr-1"></i> Summer Studio Sublet</h4>
+                        <p class="text-[11px] text-slate-300">Fully furnished 1-bedroom studio apartment available June through August. High-speed Wi-Fi included. Near central train station.</p>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-xl border border-emerald-500/30 relative">
+                        <span class="absolute top-2.5 right-2.5 bg-emerald-500/20 text-emerald-300 font-bold text-[10px] px-2 py-0.5 rounded border border-emerald-500/30">Notice D</span>
+                        <h4 class="font-bold text-emerald-200 text-xs mb-1"><i class="fa-solid fa-seedling mr-1"></i> Weekend Park Cleanup</h4>
+                        <p class="text-[11px] text-slate-300">Join our community garden project this Saturday morning! Free healthy lunch and t-shirts provided for all registered volunteers.</p>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-xl border border-rose-500/30 relative md:col-span-2">
+                        <span class="absolute top-2.5 right-2.5 bg-rose-500/20 text-rose-300 font-bold text-[10px] px-2 py-0.5 rounded border border-rose-500/30">Notice E</span>
+                        <h4 class="font-bold text-rose-200 text-xs mb-1"><i class="fa-solid fa-paw mr-1"></i> Lost Golden Retriever</h4>
+                        <p class="text-[11px] text-slate-300">Reward offered! Lost near Pine Street Park on Thursday. Answers to the name "Charlie". Wears a blue collar. Please call 555-0199 if seen!</p>
+                    </div>
+                </div>
+
+                <!-- Part 2 Questions Container -->
+                <div id="container-part2" class="space-y-4"></div>
+
+                <div class="flex justify-between items-center pt-6 border-t border-white/10">
+                    <button onclick="switchTab('part1')" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-5 py-2.5 rounded-xl transition text-xs flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-left"></i> Previous: First Part
+                    </button>
+                    <button onclick="switchTab('part3')" class="bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 py-2.5 rounded-xl transition text-xs flex items-center gap-2">
+                        Next: Third Part (Listening Practice) <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- PAGE 3: THIRD PART - LISTENING PRACTICE -->
+            <div id="page-part3" class="page-content hidden space-y-6">
+                <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                    <div>
+                        <span class="text-xs font-bold text-brand-400 uppercase tracking-widest block">Page 3 of 6</span>
+                        <h2 class="text-xl font-display font-bold text-white">Third Part: Listening Practice</h2>
+                    </div>
+                    <span class="text-xs font-bold bg-brand-500/20 text-brand-400 border border-brand-500/30 px-3 py-1 rounded-full">5 Questions</span>
+                </div>
+
+                <!-- Custom Native Speech Player -->
+                <div class="glass-card p-6 rounded-2xl border border-brand-500/30 bg-gradient-to-br from-brand-950/40 via-slate-900 to-slate-900 shadow-xl space-y-4">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-5">
+                        <div class="flex items-center gap-4">
+                            <button id="audioPlayBtn" onclick="toggleSpeechAudio()" class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-500 to-accent-500 text-white flex items-center justify-center text-xl shadow-lg shadow-brand-500/20 hover:scale-105 transition shrink-0">
+                                <i class="fa-solid fa-play ml-1" id="audioIcon"></i>
+                            </button>
+                            <div>
+                                <h3 class="font-bold text-white text-base">Audio Story: David's Eco-Cafe in Seattle</h3>
+                                <p class="text-xs text-slate-400 mt-0.5" id="audioSubStatus">Click Play to generate natural speech narration (~1:30 min)</p>
+                            </div>
+                        </div>
+
+                        <!-- Equalizer Animation Bars -->
+                        <div class="flex items-center gap-1.5 h-8 bg-slate-950/60 px-4 rounded-xl border border-white/5">
+                            <div class="w-1 bg-brand-400 rounded-full h-1.5" id="eq1"></div>
+                            <div class="w-1 bg-brand-400 rounded-full h-1.5" id="eq2"></div>
+                            <div class="w-1 bg-brand-400 rounded-full h-1.5" id="eq3"></div>
+                            <div class="w-1 bg-brand-400 rounded-full h-1.5" id="eq4"></div>
+                            <div class="w-1 bg-brand-400 rounded-full h-1.5" id="eq5"></div>
+                        </div>
+                    </div>
+
+                    <!-- Voice Engine Controls -->
+                    <div class="pt-3 border-t border-white/5 flex flex-wrap items-center justify-between gap-3 text-xs">
+                        <div class="flex items-center gap-2 text-slate-400">
+                            <i class="fa-solid fa-sliders text-brand-400"></i>
+                            <span>Voice accent:</span>
+                            <select id="voicePicker" class="glass-input text-slate-200 rounded-lg px-2.5 py-1 text-xs focus:outline-none">
+                                <option value="">Auto American English (en-US)</option>
+                            </select>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <button onclick="stopSpeechAudio()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-3 py-1.5 rounded-lg text-xs transition">
+                                <i class="fa-solid fa-square text-rose-400 mr-1"></i> Stop
+                            </button>
+                            <button onclick="toggleTranscriptBox()" class="text-brand-400 hover:text-brand-300 font-semibold flex items-center gap-1.5 py-1.5 px-2">
+                                <i class="fa-solid fa-file-lines"></i> <span id="transcriptToggleText">Show Audio Transcript</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Audio Transcript -->
+                    <div id="transcriptBoxPanel" class="hidden p-4 glass-card rounded-xl text-xs text-slate-300 leading-relaxed border border-white/10 max-h-48 overflow-y-auto">
+                        <p class="font-bold text-white mb-1.5 border-b border-white/5 pb-1">Audio Narration Transcript:</p>
+                        "Hello everyone, my name is David Evans! For over eight years, I had been working as a financial analyst in a bustling downtown Seattle bank. However, last year my wife and I decided to change our lifestyle completely. Before opening our zero-waste cafe, I had been feeling exhausted by long daily commutes in heavy traffic. Once we found a small space near Green Lake, everything changed. Before our grand opening in March, we had spent four months renovating the interior using recycled wooden pallets and energy-efficient appliances. My wife had been managing a organic food co-op for five years, so she knew exactly which local farmers to partner with. Yesterday before noon, we had already served over eighty cups of fair-trade coffee and sold out all our handmade vegan pastries! Leaving the banking sector was definitely the best career decision I had ever made."
+                    </div>
+                </div>
+
+                <!-- Part 3 Questions Container -->
+                <div id="container-part3" class="space-y-4"></div>
+
+                <div class="flex justify-between items-center pt-6 border-t border-white/10">
+                    <button onclick="switchTab('part2')" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-5 py-2.5 rounded-xl transition text-xs flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-left"></i> Previous: Second Part
+                    </button>
+                    <button onclick="switchTab('part4')" class="bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 py-2.5 rounded-xl transition text-xs flex items-center gap-2">
+                        Next: Fourth Part (Grammar Explanation) <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- PAGE 4: FOURTH PART - GRAMMAR EXPLANATIONS & FLASHCARDS -->
+            <div id="page-part4" class="page-content hidden space-y-6">
+                <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                    <div>
+                        <span class="text-xs font-bold text-brand-400 uppercase tracking-widest block">Page 4 of 6</span>
+                        <h2 class="text-xl font-display font-bold text-white">Fourth Part: Full Explanation of Past Perfect Continuous & Simple</h2>
+                    </div>
+                    <span class="text-xs font-bold bg-brand-500/20 text-brand-400 border border-brand-500/30 px-3 py-1 rounded-full">Grammar & Flashcards</span>
+                </div>
+            </div>
+
+            <!-- PAGE 4: PART 4 - GRAMMAR MASTERY & EXPLANATIONS -->
+            <div id="page-part4" class="page-content hidden space-y-6">
+                <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                    <div>
+                        <span class="text-xs font-bold text-brand-400 uppercase tracking-widest block">Section 4 of 5</span>
+                        <h2 class="text-xl font-display font-bold text-white">Part 4: Grammar Masterclass</h2>
+                    </div>
+                    <span class="text-xs font-bold bg-brand-500/20 text-brand-400 border border-brand-500/30 px-3 py-1 rounded-full">Rules & 3D Cards</span>
+                </div>
+
+                <!-- Explanation Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <!-- Past Perfect Continuous Card -->
+                    <div class="glass-card p-6 rounded-2xl border border-brand-500/30 relative space-y-3">
+                        <span class="text-[10px] font-extrabold uppercase bg-brand-500/20 text-brand-300 px-2.5 py-1 rounded-full border border-brand-500/30 inline-block">Duration & Process Focus</span>
+                        <h3 class="text-lg font-bold text-white">Past Perfect Continuous</h3>
+                        <p class="text-xs font-mono text-brand-400">Formula: HAD + BEEN + VERB(-ING)</p>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Used to emphasize an ongoing action that was happening continuously up to or right before another specific point in the past. Focuses on **how long** an action lasted.
+                        </p>
+                        <div class="bg-slate-900/80 p-3 rounded-xl border border-white/5 text-xs text-slate-300 space-y-1 font-mono">
+                            <p>✔ He <span class="text-brand-400 font-bold">had been studying</span> for 3 hours when power failed.</p>
+                            <p>✔ They were tired because they <span class="text-brand-400 font-bold">had been running</span>.</p>
+                        </div>
+                    </div>
+
+                    <!-- Past Perfect Simple Card -->
+                    <div class="glass-card p-6 rounded-2xl border border-accent-500/30 relative space-y-3">
+                        <span class="text-[10px] font-extrabold uppercase bg-accent-500/20 text-accent-300 px-2.5 py-1 rounded-full border border-accent-500/30 inline-block">Completion & Result Focus</span>
+                        <h3 class="text-lg font-bold text-white">Past Perfect Simple</h3>
+                        <p class="text-xs font-mono text-accent-400">Formula: HAD + PAST PARTICIPLE (V3)</p>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Used to show that an action was finished before another past moment. Focuses on **completion, quantity, or results** rather than duration.
+                        </p>
+                        <div class="bg-slate-900/80 p-3 rounded-xl border border-white/5 text-xs text-slate-300 space-y-1 font-mono">
+                            <p>✔ She <span class="text-accent-400 font-bold">had written</span> three reports before 5 PM.</p>
+                            <p>✔ By the time I arrived, the train <span class="text-accent-400 font-bold">had left</span>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison Matrix Table -->
+                <div class="glass-card p-5 rounded-2xl border border-white/10 space-y-3">
+                    <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-table text-brand-400"></i> Key Tense Comparison Table
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs text-slate-300 border-collapse">
+                            <thead>
+                                <tr class="border-b border-white/10 text-brand-400 font-bold uppercase text-[11px]">
+                                    <th class="p-2.5">Tense</th>
+                                    <th class="p-2.5">Time Anchor</th>
+                                    <th class="p-2.5">Example Sentence</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-white/5">
+                                <tr>
+                                    <td class="p-2.5 font-bold text-white">Past Perfect Continuous</td>
+                                    <td class="p-2.5">Past moment (duration focus)</td>
+                                    <td class="p-2.5 italic">I <span class="text-brand-400 font-bold">had been waiting</span> for 30 minutes when he arrived.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5 font-bold text-white">Past Perfect Simple</td>
+                                    <td class="p-2.5">Past moment (completion focus)</td>
+                                    <td class="p-2.5 italic">I <span class="text-accent-400 font-bold">had already eaten</span> lunch when he called.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5 font-bold text-white">Present Perfect Continuous</td>
+                                    <td class="p-2.5">NOW (started in past, continues now)</td>
+                                    <td class="p-2.5 italic">I <span class="text-emerald-400 font-bold">have been working</span> here since 2021 (still here).</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5 font-bold text-white">Present Perfect Simple</td>
+                                    <td class="p-2.5">NOW (life experience / past result)</td>
+                                    <td class="p-2.5 italic">I <span class="text-amber-400 font-bold">have visited</span> Seattle twice in my life.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Interactive 3D Flashcards -->
+                <div class="space-y-3">
+                    <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-clone text-brand-400"></i> Interactive Grammar Flashcards (Tap to flip)
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <!-- Card 1 -->
+                        <div class="flip-card h-40 cursor-pointer perspective-1000" onclick="this.classList.toggle('flipped')">
+                            <div class="transform-style-3d relative w-full h-full">
+                                <div class="backface-hidden absolute inset-0 glass-card bg-gradient-to-br from-brand-950 to-slate-900 p-4 rounded-2xl border border-brand-500/30 flex flex-col justify-between">
+                                    <span class="text-[10px] font-bold bg-white/10 px-2 py-0.5 rounded text-white w-max">Card 1</span>
+                                    <p class="font-bold text-white text-xs">Past Perfect Continuous Formula?</p>
+                                    <span class="text-[10px] text-brand-300">Tap to flip <i class="fa-solid fa-rotate-right ml-1"></i></span>
+                                </div>
+                                <div class="backface-hidden rotate-y-180 absolute inset-0 glass-card bg-slate-900 p-4 rounded-2xl border border-brand-400 flex flex-col justify-center text-xs text-slate-300 space-y-1">
+                                    <span class="font-bold text-brand-400">HAD + BEEN + VERB(-ING)</span>
+                                    <p class="text-[11px]">Example: They had been talking for hours.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="flip-card h-40 cursor-pointer perspective-1000" onclick="this.classList.toggle('flipped')">
+                            <div class="transform-style-3d relative w-full h-full">
+                                <div class="backface-hidden absolute inset-0 glass-card bg-gradient-to-br from-accent-950 to-slate-900 p-4 rounded-2xl border border-accent-500/30 flex flex-col justify-between">
+                                    <span class="text-[10px] font-bold bg-white/10 px-2 py-0.5 rounded text-white w-max">Card 2</span>
+                                    <p class="font-bold text-white text-xs">Stative Verbs Exception?</p>
+                                    <span class="text-[10px] text-accent-300">Tap to flip <i class="fa-solid fa-rotate-right ml-1"></i></span>
+                                </div>
+                                <div class="backface-hidden rotate-y-180 absolute inset-0 glass-card bg-slate-900 p-4 rounded-2xl border border-accent-400 flex flex-col justify-center text-xs text-slate-300 space-y-1">
+                                    <span class="font-bold text-amber-400">No Continuous Tense!</span>
+                                    <p class="text-[11px]">Verbs like know, love, believe take Simple tense only: "had known" NOT "had been knowing".</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="flip-card h-40 cursor-pointer perspective-1000" onclick="this.classList.toggle('flipped')">
+                            <div class="transform-style-3d relative w-full h-full">
+                                <div class="backface-hidden absolute inset-0 glass-card bg-gradient-to-br from-emerald-950 to-slate-900 p-4 rounded-2xl border border-emerald-500/30 flex flex-col justify-between">
+                                    <span class="text-[10px] font-bold bg-white/10 px-2 py-0.5 rounded text-white w-max">Card 3</span>
+                                    <p class="font-bold text-white text-xs">Past Perfect vs Present Perfect?</p>
+                                    <span class="text-[10px] text-emerald-300">Tap to flip <i class="fa-solid fa-rotate-right ml-1"></i></span>
+                                </div>
+                                <div class="backface-hidden rotate-y-180 absolute inset-0 glass-card bg-slate-900 p-4 rounded-2xl border border-emerald-400 flex flex-col justify-center text-xs text-slate-300 space-y-1">
+                                    <span class="font-bold text-emerald-400">Past Anchor vs Now</span>
+                                    <p class="text-[11px]">Past Perfect happens BEFORE a past event. Present Perfect connects directly to NOW.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="flip-card h-40 cursor-pointer perspective-1000" onclick="this.classList.toggle('flipped')">
+                            <div class="transform-style-3d relative w-full h-full">
+                                <div class="backface-hidden absolute inset-0 glass-card bg-gradient-to-br from-indigo-950 to-slate-900 p-4 rounded-2xl border border-indigo-500/30 flex flex-col justify-between">
+                                    <span class="text-[10px] font-bold bg-white/10 px-2 py-0.5 rounded text-white w-max">Card 4</span>
+                                    <p class="font-bold text-white text-xs">Common Duration Signals?</p>
+                                    <span class="text-[10px] text-indigo-300">Tap to flip <i class="fa-solid fa-rotate-right ml-1"></i></span>
+                                </div>
+                                <div class="backface-hidden rotate-y-180 absolute inset-0 glass-card bg-slate-900 p-4 rounded-2xl border border-indigo-400 flex flex-col justify-center text-xs text-slate-300 space-y-1">
+                                    <span class="font-bold text-indigo-400">Keywords</span>
+                                    <p class="text-[11px]">for 2 hours, since morning, all day long, before, by the time.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-center pt-6 border-t border-white/10">
+                    <button onclick="switchTab('part3')" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-5 py-2.5 rounded-xl transition text-xs flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-left"></i> Previous: Third Part
+                    </button>
+                    <button onclick="switchTab('part5')" class="bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 py-2.5 rounded-xl transition text-xs flex items-center gap-2">
+                        Next: Fifth Part (Grammar Questions 25Q) <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- PAGE 5: FIFTH PART - GRAMMAR QUESTIONS (25 QUESTIONS TOTAL) -->
+            <div id="page-part5" class="page-content hidden space-y-6">
+                <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                    <div>
+                        <span class="text-xs font-bold text-brand-400 uppercase tracking-widest block">Page 5 of 6</span>
+                        <h2 class="text-xl font-display font-bold text-white">Fifth Part: Past Perfect Continuous & Simple Assessment</h2>
+                        <p class="text-xs text-slate-400 mt-0.5">20 Multiple Choice Questions + 5 Open Fill-in-the-Blank Conjugations</p>
+                    </div>
+                    <span class="text-xs font-bold bg-brand-500/20 text-brand-400 border border-brand-500/30 px-3 py-1 rounded-full">25 Questions</span>
+                </div>
+
+                <!-- Section A: 20 Multiple Choice Questions -->
+                <div class="space-y-4">
+                    <h3 class="text-sm font-bold text-brand-400 border-b border-white/10 pb-2">
+                        Section A: Multiple Choice Questions (Q11 to Q30)
+                    </h3>
+                    <div id="container-part5-mc" class="space-y-4"></div>
+                </div>
+
+                <!-- Section B: 5 Open Answer Questions -->
+                <div class="space-y-4 pt-6 border-t border-white/10">
+                    <h3 class="text-sm font-bold text-accent-400 border-b border-white/10 pb-2">
+                        Section B: Open Fill-in-the-Blank Conjugations (Q31 to Q35)
+                    </h3>
+                    <div id="container-part5-open" class="space-y-4"></div>
+                </div>
+
+                <div class="flex justify-between items-center pt-6 border-t border-white/10">
+                    <button onclick="switchTab('part4')" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-5 py-2.5 rounded-xl transition text-xs flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-left"></i> Previous: Fourth Part
+                    </button>
+                    <button onclick="attemptSubmitResults()" class="bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-bold px-8 py-3 rounded-2xl shadow-xl transition text-xs flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check"></i> Next: Sixth Part (Results & Unlocking)
+                    </button>
+                </div>
+            </div>
+
+            <!-- PAGE 6: SIXTH PART - RESULTS & SUBMISSION (UNLOCKED ONLY WHEN COMPLETE) -->
+            <div id="page-part6" class="page-content hidden space-y-6">
+                
+                <!-- LOCKED STATE WARNING PANEL (SHOWN IF INCOMPLETE) -->
+                <div id="resultsLockedNotice" class="hidden glass-card p-8 rounded-3xl border border-rose-500/40 text-center space-y-4 my-8">
+                    <div class="w-16 h-16 rounded-full bg-rose-500/20 text-rose-400 flex items-center justify-center text-2xl mx-auto border border-rose-500/30">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Sixth Part (Results) is Currently Locked</h3>
+                    <p class="text-xs text-slate-300 max-w-md mx-auto leading-relaxed" id="lockedMessageDetails">
+                        You must complete all 35 questions before accessing your evaluated score sheet and teacher submission options.
+                    </p>
+                    <div class="pt-2">
+                        <button onclick="jumpToFirstIncomplete()" class="bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition">
+                            Jump to Next Unanswered Question
+                        </button>
+                    </div>
+                </div>
+
+                <!-- UNLOCKED RESULTS DISPLAY (SHOWN WHEN ALL 35 ARE ANSWERED) -->
+                <div id="resultsUnlockedContent" class="space-y-6">
+                    <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                        <div>
+                            <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block">Page 6 of 6 (Unlocked)</span>
+                            <h2 class="text-xl font-display font-bold text-white">Sixth Part: Answers & Teacher Email Submission</h2>
+                        </div>
+                        <span class="text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full">Complete</span>
+                    </div>
+
+                    <!-- Score Header Banner -->
+                    <div class="glass-card p-6 rounded-3xl border border-brand-500/30 bg-gradient-to-r from-brand-950/60 via-slate-900 to-slate-900 flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full border border-emerald-500/30">Assessment Verified</span>
+                            <h2 class="text-3xl font-display font-extrabold text-white mt-2" id="resultsNameDisplay">Student Name</h2>
+                            <p class="text-xs text-slate-400 mt-1" id="resultsDateDisplay">Date: --/--/----</p>
+                        </div>
+
+                        <div class="flex items-center gap-6 bg-slate-950/80 px-6 py-4 rounded-2xl border border-white/10">
+                            <div class="text-center">
+                                <span class="text-3xl font-extrabold text-white" id="scorePercentDisplay">0%</span>
+                                <span class="block text-[10px] font-bold text-slate-400 uppercase mt-0.5">Final Score</span>
+                            </div>
+                            <div class="h-8 w-px bg-white/10"></div>
+                            <div class="text-center">
+                                <span class="text-xl font-bold text-brand-400" id="scoreRatioDisplay">0 / 35</span>
+                                <span class="block text-[10px] font-bold text-slate-400 uppercase mt-0.5">Correct Answers</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <button onclick="sendTeacherEmail()" class="glass-card p-4 rounded-2xl border border-brand-500/40 hover:border-brand-400 bg-brand-600/20 hover:bg-brand-600/30 text-white font-bold transition flex items-center justify-center gap-3 text-xs">
+                            <i class="fa-solid fa-paper-plane text-xl text-brand-400"></i>
+                            <div class="text-left">
+                                <div>Send Email to Teacher</div>
+                                <div class="text-[10px] font-normal text-slate-300">Danielenglishclasses23@gmail.com</div>
+                            </div>
+                        </button>
+
+                        <button onclick="copyCompactSummary()" class="glass-card p-4 rounded-2xl border border-accent-500/40 hover:border-accent-400 bg-accent-600/20 hover:bg-accent-600/30 text-white font-bold transition flex items-center justify-center gap-3 text-xs">
+                            <i class="fa-solid fa-copy text-xl text-accent-400"></i>
+                            <div class="text-left">
+                                <div>Copy Answer String</div>
+                                <div class="text-[10px] font-normal text-slate-300">Format: 1. A ✓ | 2. C ✗ ...</div>
+                            </div>
+                        </button>
+
+                        <button onclick="window.print()" class="glass-card p-4 rounded-2xl border border-slate-500/40 hover:border-slate-400 bg-slate-800/40 hover:bg-slate-800/60 text-white font-bold transition flex items-center justify-center gap-3 text-xs">
+                            <i class="fa-solid fa-print text-xl text-slate-300"></i>
+                            <div class="text-left">
+                                <div>Print / Save PDF</div>
+                                <div class="text-[10px] font-normal text-slate-300">Generates printable report</div>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- Concise Copy Preview -->
+                    <div class="glass-card p-4 rounded-2xl border border-white/10">
+                        <label class="text-[11px] font-bold text-slate-400 block mb-2">Compact Clipboard Answer Sheet Preview</label>
+                        <textarea id="clipboardPreview" readonly class="w-full h-20 glass-input font-mono text-[11px] text-brand-300 p-3 rounded-xl focus:outline-none resize-none"></textarea>
+                    </div>
+
+                    <!-- Itemized Answer Review List -->
+                    <div class="space-y-3">
+                        <h3 class="text-sm font-bold text-white border-b border-white/10 pb-2">Full Itemized Review (35 Questions)</h3>
+                        <div id="itemizedReviewList" class="space-y-2.5"></div>
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-center pt-6 border-t border-white/10">
+                    <button onclick="switchTab('part5')" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-5 py-2.5 rounded-xl transition text-xs flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-left"></i> Previous: Fifth Part
+                    </button>
+                </div>
+            </div>
+
+            <!-- PAGE 6: PART 6 - RESULTS & SUBMISSION (UNLOCKED ONLY WHEN COMPLETE) -->
+            <div id="page-part6" class="page-content hidden space-y-6">
+                
+                <!-- LOCKED STATE WARNING PANEL (SHOWN IF INCOMPLETE) -->
+                <div id="resultsLockedNotice" class="hidden glass-card p-8 rounded-3xl border border-rose-500/40 text-center space-y-4 my-8">
+                    <div class="w-16 h-16 rounded-full bg-rose-500/20 text-rose-400 flex items-center justify-center text-2xl mx-auto border border-rose-500/30">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Part 6 Results is Currently Locked</h3>
+                    <p class="text-xs text-slate-300 max-w-md mx-auto leading-relaxed" id="lockedMessageDetails">
+                        You must complete all 35 questions before accessing your evaluated score sheet and teacher submission options.
+                    </p>
+                    <div class="pt-2">
+                        <button onclick="jumpToFirstIncomplete()" class="bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition">
+                            Jump to Next Unanswered Question
+                        </button>
+                    </div>
+                </div>
+
+                <!-- UNLOCKED RESULTS DISPLAY (SHOWN WHEN ALL 35 ARE ANSWERED) -->
+                <div id="resultsUnlockedContent" class="space-y-6">
+                    <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                        <div>
+                            <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block">Section 6 of 6 (Unlocked)</span>
+                            <h2 class="text-xl font-display font-bold text-white">Part 6: Final Results & Teacher Submission</h2>
+                        </div>
+                        <span class="text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full">Complete</span>
+                    </div>
+
+                    <!-- Score Header Banner -->
+                    <div class="glass-card p-6 rounded-3xl border border-brand-500/30 bg-gradient-to-r from-brand-950/60 via-slate-900 to-slate-900 flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full border border-emerald-500/30">Assessment Verified</span>
+                            <h2 class="text-3xl font-display font-extrabold text-white mt-2" id="resultsNameDisplay">Student Name</h2>
+                            <p class="text-xs text-slate-400 mt-1" id="resultsDateDisplay">Date: --/--/----</p>
+                        </div>
+
+                        <div class="flex items-center gap-6 bg-slate-950/80 px-6 py-4 rounded-2xl border border-white/10">
+                            <div class="text-center">
+                                <span class="text-3xl font-extrabold text-white" id="scorePercentDisplay">0%</span>
+                                <span class="block text-[10px] font-bold text-slate-400 uppercase mt-0.5">Final Score</span>
+                            </div>
+                            <div class="h-8 w-px bg-white/10"></div>
+                            <div class="text-center">
+                                <span class="text-xl font-bold text-brand-400" id="scoreRatioDisplay">0 / 35</span>
+                                <span class="block text-[10px] font-bold text-slate-400 uppercase mt-0.5">Correct</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <button onclick="sendTeacherEmail()" class="glass-card p-4 rounded-2xl border border-brand-500/40 hover:border-brand-400 bg-brand-600/20 hover:bg-brand-600/30 text-white font-bold transition flex items-center justify-center gap-3 text-xs">
+                            <i class="fa-solid fa-paper-plane text-xl text-brand-400"></i>
+                            <div class="text-left">
+                                <div>Email to Teacher</div>
+                                <div class="text-[10px] font-normal text-slate-300">Danielenglishclasses23@gmail.com</div>
+                            </div>
+                        </button>
+
+                        <button onclick="copyCompactSummary()" class="glass-card p-4 rounded-2xl border border-accent-500/40 hover:border-accent-400 bg-accent-600/20 hover:bg-accent-600/30 text-white font-bold transition flex items-center justify-center gap-3 text-xs">
+                            <i class="fa-solid fa-copy text-xl text-accent-400"></i>
+                            <div class="text-left">
+                                <div>Copy Answer String</div>
+                                <div class="text-[10px] font-normal text-slate-300">Format: 1. A ✓ | 2. C ✗ ...</div>
+                            </div>
+                        </button>
+
+                        <button onclick="window.print()" class="glass-card p-4 rounded-2xl border border-slate-500/40 hover:border-slate-400 bg-slate-800/40 hover:bg-slate-800/60 text-white font-bold transition flex items-center justify-center gap-3 text-xs">
+                            <i class="fa-solid fa-print text-xl text-slate-300"></i>
+                            <div class="text-left">
+                                <div>Print / Save PDF</div>
+                                <div class="text-[10px] font-normal text-slate-300">Generates printable sheet</div>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- Concise Copy Preview -->
+                    <div class="glass-card p-4 rounded-2xl border border-white/10">
+                        <label class="text-[11px] font-bold text-slate-400 block mb-2">Compact Clipboard Answer Sheet Preview</label>
+                        <textarea id="clipboardPreview" readonly class="w-full h-20 glass-input font-mono text-[11px] text-brand-300 p-3 rounded-xl focus:outline-none resize-none"></textarea>
+                    </div>
+
+                    <!-- Itemized Answer Review List -->
+                    <div class="space-y-3">
+                        <h3 class="text-sm font-bold text-white border-b border-white/10 pb-2">Full Itemized Review (35 Questions)</h3>
+                        <div id="itemizedReviewList" class="space-y-2.5"></div>
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-center pt-6 border-t border-white/10">
+                    <button onclick="switchTab('part5')" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-5 py-2.5 rounded-xl transition text-xs flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-left"></i> Previous: Part 5
+                    </button>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="text-center text-[11px] text-slate-500 py-2">
+            © <span id="yearDisplay"></span> English Family Assessment System | Designed for B1 Mastery & Grammar Excellence
+        </footer>
+    </div>
+
+    <!-- JAVASCRIPT ENGINE -->
+    <script>
+        // --- 1. ALL 35 QUESTIONS DATA SHEET ---
+        const questionsData = [
+            // PART 1: READING (Q1 - Q5)
+            {
+                id: 1,
+                part: 'part1',
+                qNum: 1,
+                text: 'Why did Arthur Miller leave his previous corporate position?',
+                options: [
+                    'A) He wanted to relocate to another city.',
+                    'B) He was tired of high-stress deadlines and sought community impact.',
+                    'C) The logistics company went out of business.',
+                    'D) He wanted to study sustainable agriculture in college.'
+                ],
+                correct: 'B',
+                explanation: 'Arthur worked 15 years as a manager and left because he grew tired of high-stress deadlines.'
+            },
+            {
+                id: 2,
+                part: 'part1',
+                qNum: 2,
+                text: 'What had Arthur done before purchasing specialized solar ovens?',
+                options: [
+                    'A) He had spent months researching renewable energy systems.',
+                    'B) He had already hired ten extra staff members.',
+                    'C) He had opened two other bakeries in Seattle.',
+                    'D) He had closed down the neighborhood market.'
+                ],
+                correct: 'A',
+                explanation: 'Prior to purchasing the electric ovens, Arthur had spent months researching renewable systems.'
+            },
+            {
+                id: 3,
+                part: 'part1',
+                qNum: 3,
+                text: 'What role does Arthur\'s daughter Sarah play in the bakery?',
+                options: [
+                    'A) She manages international flour exports.',
+                    'B) She handles legal contracts with corporate clients.',
+                    'C) She coordinates with local farmers for organic grains.',
+                    'D) She repairs solar panels every afternoon.'
+                ],
+                correct: 'C',
+                explanation: 'Sarah studied sustainable agriculture and coordinates with local farmers to source organic grains.'
+            },
+            {
+                id: 4,
+                part: 'part1',
+                qNum: 4,
+                text: 'By 6:00 PM yesterday, how many loaves of sourdough had they distributed to community centers?',
+                options: [
+                    'A) 15 loaves',
+                    'B) 50 loaves',
+                    'C) 100 loaves',
+                    'D) 200 loaves'
+                ],
+                correct: 'B',
+                explanation: 'The text specifies that by 6:00 PM yesterday, they had distributed fifty loaves to community centers.'
+            },
+            {
+                id: 5,
+                part: 'part1',
+                qNum: 5,
+                text: 'Why do local residents strongly support Green Harvest Bakery despite higher prices?',
+                options: [
+                    'A) Because it is the only bakery in Portland.',
+                    'B) Because they offer free coffee all day.',
+                    'C) Because residents appreciate their environmental values.',
+                    'D) Because they sell cheap imported wheat.'
+                ],
+                correct: 'C',
+                explanation: 'Residents appreciate their zero-waste and eco-friendly environmental values.'
+            },
+
+            // PART 2: AD MATCHING (Q6 - Q10)
+            {
+                id: 6,
+                part: 'part2',
+                qNum: 6,
+                text: 'Liam is a university student on a tight budget looking for a low-cost gym with no sign-up fees.',
+                options: [
+                    'A) Notice A (24/7 Student Fitness)',
+                    'B) Notice B (Refurbished Tech Store)',
+                    'C) Notice C (Summer Studio Sublet)',
+                    'D) Notice D (Weekend Park Cleanup)',
+                    'E) Notice E (Lost Golden Retriever)'
+                ],
+                correct: 'A',
+                explanation: 'Notice A offers a $20/month student rate with zero sign-up fees.'
+            },
+            {
+                id: 7,
+                part: 'part2',
+                qNum: 7,
+                text: 'Sophia needs a fast laptop for her coding course and wants to save money with a cash discount.',
+                options: [
+                    'A) Notice A',
+                    'B) Notice B (Refurbished Tech Store)',
+                    'C) Notice C',
+                    'D) Notice D',
+                    'E) Notice E'
+                ],
+                correct: 'B',
+                explanation: 'Notice B offers pre-owned 2024 laptops with 1-year warranty and 25% cash discount.'
+            },
+            {
+                id: 8,
+                part: 'part2',
+                qNum: 8,
+                text: 'Marcus is a visiting researcher who needs a furnished apartment for July and August.',
+                options: [
+                    'A) Notice A',
+                    'B) Notice B',
+                    'C) Notice C (Summer Studio Sublet)',
+                    'D) Notice D',
+                    'E) Notice E'
+                ],
+                correct: 'C',
+                explanation: 'Notice C is a furnished studio apartment available June through August.'
+            },
+            {
+                id: 9,
+                part: 'part2',
+                qNum: 9,
+                text: 'Chloe wants to volunteer outdoors on Saturday and get a free meal.',
+                options: [
+                    'A) Notice A',
+                    'B) Notice B',
+                    'C) Notice C',
+                    'D) Notice D (Weekend Park Cleanup)',
+                    'E) Notice E'
+                ],
+                correct: 'D',
+                explanation: 'Notice D is a Saturday park cleanup offering free lunch and t-shirts to volunteers.'
+            },
+            {
+                id: 10,
+                part: 'part2',
+                qNum: 10,
+                text: 'A neighbor spotted a friendly dog wearing a blue collar near Pine Street Park.',
+                options: [
+                    'A) Notice A',
+                    'B) Notice B',
+                    'C) Notice C',
+                    'D) Notice D',
+                    'E) Notice E (Lost Golden Retriever)'
+                ],
+                correct: 'E',
+                explanation: 'Notice E describes Charlie, a lost Golden Retriever wearing a blue collar.'
+            },
+
+            // PART 3: LISTENING (Q11 - Q15)
+            {
+                id: 11,
+                part: 'part3',
+                qNum: 11,
+                text: 'How long had David been working as a financial analyst in downtown Seattle?',
+                options: [
+                    'A) For over two years.',
+                    'B) For over eight years.',
+                    'C) For fifteen years.',
+                    'D) For four months.'
+                ],
+                correct: 'B',
+                explanation: 'David stated he had been working for over eight years in a downtown Seattle bank.'
+            },
+            {
+                id: 12,
+                part: 'part3',
+                qNum: 12,
+                text: 'What had been causing David stress prior to quitting his corporate job?',
+                options: [
+                    'A) High office rent costs.',
+                    'B) Long daily commutes in heavy traffic.',
+                    'C) Disagreements with local farmers.',
+                    'D) Working night shifts.'
+                ],
+                correct: 'B',
+                explanation: 'David mentioned feeling exhausted by long daily commutes in heavy traffic.'
+            },
+            {
+                id: 13,
+                part: 'part3',
+                qNum: 13,
+                text: 'How long had they spent renovating the cafe interior before the grand opening in March?',
+                options: [
+                    'A) Two weeks.',
+                    'B) Four months.',
+                    'C) Eight months.',
+                    'D) One full year.'
+                ],
+                correct: 'B',
+                explanation: 'The audio confirms they had spent four months renovating using recycled pallets.'
+            },
+            {
+                id: 14,
+                part: 'part3',
+                qNum: 14,
+                text: 'Why did David\'s wife know which local organic farmers to partner with?',
+                options: [
+                    'A) She had managed an organic food co-op for five years.',
+                    'B) She had studied culinary arts in France.',
+                    'C) She owned a farm nearby.',
+                    'D) She had worked as a nutritionist.'
+                ],
+                correct: 'A',
+                explanation: 'His wife had been managing an organic food co-op for five years.'
+            },
+
+            {
+                id: 15,
+                part: 'part3',
+                qNum: 15,
+                text: 'What had happened by noon yesterday at their zero-waste cafe?',
+                options: [
+                    'A) They had closed early due to power outage.',
+                    'B) They had served over 80 cups of coffee and sold out all vegan pastries.',
+                    'C) They had signed three new corporate contracts.',
+                    'D) They had bought a second delivery van.'
+                ],
+                correct: 'B',
+                explanation: 'By noon yesterday, they had served over 80 cups of coffee and sold out vegan pastries.'
+            },
+
+            // PART 5 MC (Q16 - Q30)
+            {
+                id: 16,
+                part: 'part5-mc',
+                qNum: 16,
+                text: 'When we arrived at the station, the train ______ already left.',
+                options: ['A) has', 'B) had', 'C) was', 'D) had been'],
+                correct: 'B',
+                explanation: 'Past Perfect Simple ("had left") for an action finished before a past point.'
+            },
+            {
+                id: 17,
+                part: 'part5-mc',
+                qNum: 17,
+                text: 'Sarah was exhausted yesterday because she ______ all afternoon.',
+                options: ['A) had been studying', 'B) has studied', 'C) studies', 'D) was studied'],
+                correct: 'A',
+                explanation: 'Past Perfect Continuous ("had been studying") emphasizes cause & duration of past fatigue.'
+            },
+            {
+                id: 18,
+                part: 'part5-mc',
+                qNum: 18,
+                text: 'By the time the fire brigade arrived, the neighbors ______ put out the flames.',
+                options: ['A) have', 'B) had', 'C) were', 'D) have been'],
+                correct: 'B',
+                explanation: 'Action completed prior to another past event requires Past Perfect Simple.'
+            },
+            {
+                id: 19,
+                part: 'part5-mc',
+                qNum: 19,
+                text: 'How long ______ English before you moved to Chicago in 2022?',
+                options: [
+                    'A) have you been learning',
+                    'B) had you been learning',
+                    'C) did you learned',
+                    'D) are you learning'
+                ],
+                correct: 'B',
+                explanation: 'Duration prior to a specific past date (2022) takes Past Perfect Continuous.'
+            },
+            {
+                id: 20,
+                part: 'part5-mc',
+                qNum: 20,
+                text: 'They ______ each other for ten years before they decided to get married.',
+                options: [
+                    'A) had known',
+                    'B) had been knowing',
+                    'C) have known',
+                    'D) were knowing'
+                ],
+                correct: 'A',
+                explanation: '"Know" is a stative verb; it cannot be used in continuous tenses.'
+            },
+            {
+                id: 21,
+                part: 'part5-mc',
+                qNum: 21,
+                text: 'The roads were slippery because it ______ all night long.',
+                options: ['A) had been raining', 'B) has rained', 'C) rains', 'D) is raining'],
+                correct: 'A',
+                explanation: 'Past result (slippery roads) caused by an ongoing past process.'
+            },
+            {
+                id: 22,
+                part: 'part5-mc',
+                qNum: 22,
+                text: 'I could not log in because I ______ my password.',
+                options: ['A) had forgotten', 'B) have forgotten', 'C) had been forgetting', 'D) forget'],
+                correct: 'A',
+                explanation: 'Completed past state causing a past inability.'
+            },
+            {
+                id: 23,
+                part: 'part5-mc',
+                qNum: 23,
+                text: 'He was out of breath when he entered the office because he ______.',
+                options: ['A) had been running', 'B) has run', 'C) was run', 'D) had run three miles'],
+                correct: 'A',
+                explanation: 'Focus on continuous physical activity prior to entering.'
+            },
+            {
+                id: 24,
+                part: 'part5-mc',
+                qNum: 24,
+                text: 'Before last week, she ______ never ______ a modern electric vehicle.',
+                options: [
+                    'A) has / driven',
+                    'B) had / driven',
+                    'C) had / been driving',
+                    'D) was / driving'
+                ],
+                correct: 'B',
+                explanation: 'Life experience anchored before a specific past time takes Past Perfect Simple.'
+            },
+            {
+                id: 25,
+                part: 'part5-mc',
+                qNum: 25,
+                text: 'By 5:00 PM, the mechanics ______ fixed four cars.',
+                options: ['A) had', 'B) had been', 'C) have', 'D) were'],
+                correct: 'A',
+                explanation: 'Quantity completed ("four cars") requires Simple tense ("had fixed").'
+            },
+            {
+                id: 26,
+                part: 'part5-mc',
+                qNum: 26,
+                text: 'The children\'s hands were dirty because they ______ in the garden.',
+                options: ['A) had been playing', 'B) have played', 'C) play', 'D) had played three games'],
+                correct: 'A',
+                explanation: 'Ongoing activity with visible past result.'
+            },
+            {
+                id: 27,
+                part: 'part5-mc',
+                qNum: 27,
+                text: 'She failed the exam because she ______ to class regularly.',
+                options: ['A) had not been attending', 'B) has not attended', 'C) was not attend', 'D) had not attend'],
+                correct: 'A',
+                explanation: 'Negative continuous habit prior to failing.'
+            },
+            {
+                id: 28,
+                part: 'part5-mc',
+                qNum: 28,
+                text: 'Mark bought a new laptop after his old one ______ down.',
+                options: ['A) had broken', 'B) has broken', 'C) had been breaking', 'D) breaks'],
+                correct: 'A',
+                explanation: 'Past event occurring prior to buying.'
+            },
+            {
+                id: 29,
+                part: 'part5-mc',
+                qNum: 29,
+                text: 'How many cups of coffee ______ before the meeting started?',
+                options: [
+                    'A) had you drunk',
+                    'B) had you been drinking',
+                    'C) have you drunk',
+                    'D) were you drunk'
+                ],
+                correct: 'A',
+                explanation: 'Questions asking "How many" require Past Perfect Simple.'
+            },
+            {
+                id: 30,
+                part: 'part5-mc',
+                qNum: 30,
+                text: 'They ______ for two hours when the concert finally began.',
+                options: ['A) had been waiting', 'B) have waited', 'C) were waited', 'D) had waited twice'],
+                correct: 'A',
+                explanation: 'Continuous waiting period before the concert started.'
+            },
+
+            // PART 5 OPEN (Q31 - Q35)
+            {
+                id: 31,
+                part: 'part5-open',
+                qNum: 31,
+                text: 'By the time we reached the cinema, the movie ________________________ (already / start).',
+                type: 'open',
+                correctAnswers: ['had already started', 'had started'],
+                displayCorrect: 'had already started',
+                explanation: 'Past Perfect Simple required for event completed prior to reaching.'
+            },
+            {
+                id: 32,
+                part: 'part5-open',
+                qNum: 32,
+                text: 'Her eyes were red because she ________________________ (cry) for hours.',
+                type: 'open',
+                correctAnswers: ['had been crying'],
+                displayCorrect: 'had been crying',
+                explanation: 'Past Perfect Continuous required for continuous physical process.'
+            },
+            {
+                id: 33,
+                part: 'part5-open',
+                qNum: 33,
+                text: 'Prior to 2023, David ________________________ (never / visit) Seattle.',
+                type: 'open',
+                correctAnswers: ['had never visited', 'had not visited'],
+                displayCorrect: 'had never visited',
+                explanation: 'Experience prior to a past date takes Past Perfect Simple.'
+            },
+            {
+                id: 34,
+                part: 'part5-open',
+                qNum: 34,
+                text: 'How long ________________________ (you / work) there when you got promoted?',
+                type: 'open',
+                correctAnswers: ['had you been working', 'had you worked'],
+                displayCorrect: 'had you been working',
+                explanation: 'Duration question prior to a past event.'
+            },
+            {
+                id: 35,
+                part: 'part5-open',
+                qNum: 35,
+                text: 'They were tired because they ________________________ (clean) the whole house since morning.',
+                type: 'open',
+                correctAnswers: ['had been cleaning'],
+                displayCorrect: 'had been cleaning',
+                explanation: 'Duration signal "since morning" with past result takes Past Perfect Continuous.'
+            }
+        ];
+
+        // Global User State
+        let userAnswers = {};
+        let currentTab = 'intro';
+        let speechSynth = window.speechSynthesis;
+        let currentUtterance = null;
+        let isAudioPlaying = false;
+
+        // --- 2. INITIALIZATION ---
+        window.onload = function() {
+            // Auto date fill
+            const today = new Date();
+            const dateStr = today.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+            document.getElementById('autoDateDisplay').innerText = dateStr;
+            document.getElementById('yearDisplay').innerText = today.getFullYear();
+
+            // Render Questions into Containers
+            renderPartQuestions('part1', 'container-part1');
+            renderPartQuestions('part2', 'container-part2');
+            renderPartQuestions('part3', 'container-part3');
+            renderPartQuestions('part5-mc', 'container-part5-mc');
+            renderPartQuestions('part5-open', 'container-part5-open');
+
+            // Setup Voice Picker
+            populateVoices();
+            if (speechSynth.onvoiceschanged !== undefined) {
+                speechSynth.onvoiceschanged = populateVoices;
+            }
+
+            // Restore from localStorage if present
+            loadSavedState();
+
+            // Initial UI Update
+            updateGlobalProgress();
+            switchTab('intro');
+        };
+
+        // --- 3. QUESTION RENDERING ENGINE ---
+        function renderPartQuestions(partKey, containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            const list = questionsData.filter(q => q.part === partKey);
+            let html = '';
+
+            list.forEach(q => {
+                html += `
+                <div class="glass-card p-5 rounded-2xl border border-white/5 space-y-3" id="qcard-${q.id}">
+                    <div class="flex items-start justify-between gap-3">
+                        <span class="text-xs font-bold text-brand-400 bg-brand-500/10 px-2.5 py-1 rounded-lg border border-brand-500/20">
+                            Q${q.id}.
+                        </span>
+                        <p class="text-xs sm:text-sm font-semibold text-white flex-1 leading-snug">${q.text}</p>
+                    </div>
+                `;
+
+                if (q.type === 'open') {
+                    html += `
+                        <div class="pt-1">
+                            <input type="text" id="input-q${q.id}" 
+                                   placeholder="Type exact verb phrase here..." 
+                                   oninput="recordOpenAnswer(${q.id}, this.value)"
+                                   class="w-full glass-input text-xs font-mono font-bold text-brand-300 p-3 rounded-xl focus:outline-none focus:border-brand-500 transition">
+                        </div>
+                    `;
+                } else {
+                    html += `<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">`;
+                    q.options.forEach((opt, idx) => {
+                        const letter = ['A', 'B', 'C', 'D', 'E'][idx];
+                        html += `
+                            <button type="button" id="btn-q${q.id}-${letter}" 
+                                    onclick="recordMCAnswer(${q.id}, '${letter}')"
+                                    class="mc-option-btn text-left p-3 rounded-xl glass-card text-xs text-slate-300 font-medium hover:bg-white/10 transition border border-white/5 flex items-center gap-2">
+                                <span class="w-5 h-5 rounded-md bg-slate-800 text-slate-400 font-bold flex items-center justify-center text-[10px] shrink-0">${letter}</span>
+                                <span class="leading-tight">${opt.substring(3)}</span>
+                            </button>
+                        `;
+                    });
+                    html += `</div>`;
+                }
+
+                html += `</div>`;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // --- 4. ANSWER RECORDING & LOCAL STORAGE ---
+        function recordMCAnswer(qId, letter) {
+            userAnswers[qId] = letter;
+            saveState();
+
+            // Highlight UI
+            const qObj = questionsData.find(q => q.id === qId);
+            const numOptions = qObj.options.length;
+            ['A', 'B', 'C', 'D', 'E'].slice(0, numOptions).forEach(l => {
+                const btn = document.getElementById(`btn-q${qId}-${l}`);
+                if (btn) {
+                    if (l === letter) {
+                        btn.className = "mc-option-btn text-left p-3 rounded-xl bg-brand-500/20 text-white font-bold border border-brand-500 transition flex items-center gap-2 shadow-lg shadow-brand-500/10";
+                    } else {
+                        btn.className = "mc-option-btn text-left p-3 rounded-xl glass-card text-xs text-slate-300 font-medium hover:bg-white/10 transition border border-white/5 flex items-center gap-2";
+                    }
+                }
+            });
+
+            updateGlobalProgress();
+        }
+
+        function recordOpenAnswer(qId, val) {
+            if (val.trim() !== "") {
+                userAnswers[qId] = val;
+            } else {
+                delete userAnswers[qId];
+            }
+            saveState();
+            updateGlobalProgress();
+        }
+
+        function saveState() {
+            localStorage.setItem('ef_assessment_answers', JSON.stringify(userAnswers));
+            const name = document.getElementById('studentNameInput').value;
+            localStorage.setItem('ef_assessment_student_name', name);
+        }
+
+        function loadSavedState() {
+            const savedAns = localStorage.getItem('ef_assessment_answers');
+            if (savedAns) {
+                try {
+                    userAnswers = JSON.parse(savedAns);
+                    Object.keys(userAnswers).forEach(qIdStr => {
+                        const qId = parseInt(qIdStr);
+                        const ans = userAnswers[qId];
+                        const qObj = questionsData.find(q => q.id === qId);
+                        if (qObj) {
+                            if (qObj.type === 'open') {
+                                const input = document.getElementById(`input-q${qId}`);
+                                if (input) input.value = ans;
+                            } else {
+                                recordMCAnswer(qId, ans);
+                            }
+                        }
+                    });
+                } catch(e) {}
+            }
+
+            const savedName = localStorage.getItem('ef_assessment_student_name');
+            if (savedName) {
+                document.getElementById('studentNameInput').value = savedName;
+            }
+        }
+
+        // --- 5. PROGRESS & MULTI-PAGE STEPPER LOGIC ---
+        function updateGlobalProgress() {
+            const totalQs = 35;
+            const answeredCount = Object.keys(userAnswers).length;
+            const percentage = Math.round((answeredCount / totalQs) * 100);
+
+            document.getElementById('progressTextDisplay').innerText = `${percentage}% (${answeredCount} / ${totalQs} Answered)`;
+            document.getElementById('progressBarFill').style.width = `${percentage}%`;
+
+            // Lock/Unlock Part 6 Tab state
+            const resultsTab = document.getElementById('tab-part6');
+            const lockIcon = document.getElementById('resultsTabLockIcon');
+
+            if (answeredCount === totalQs) {
+                resultsTab.className = "tab-btn px-4 py-2.5 rounded-xl flex items-center gap-2 transition shrink-0 bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 font-bold hover:bg-emerald-600/50 cursor-pointer";
+                lockIcon.className = "fa-solid fa-lock-open text-emerald-400";
+            } else {
+                resultsTab.className = "tab-btn px-4 py-2.5 rounded-xl flex items-center gap-2 transition shrink-0 bg-slate-900/60 text-slate-500 cursor-not-allowed border border-white/5";
+                lockIcon.className = "fa-solid fa-lock text-rose-400";
+            }
+        }
+
+        // TAB SWITCHING STRICT PAGE SYSTEM
+        function switchTab(tabId) {
+            // Guard Part 6 locking
+            if (tabId === 'part6') {
+                const count = Object.keys(userAnswers).length;
+                if (count < 35) {
+                    showLockedNotice(count);
+                    return;
+                }
+                buildResultsSheet();
+            }
+
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
+            
+            // Show requested page
+            const target = document.getElementById(`page-${tabId}`);
+            if (target) target.classList.remove('hidden');
+
+            // Update Top Tabs styling
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                if (btn.id !== 'tab-part6') {
+                    btn.className = "tab-btn px-4 py-2.5 rounded-xl flex items-center gap-2 transition shrink-0 bg-slate-800 text-slate-300 hover:bg-slate-700";
+                }
+            });
+
+            const activeTabBtn = document.getElementById(`tab-${tabId}`);
+            if (activeTabBtn && tabId !== 'part6') {
+                activeTabBtn.className = "tab-btn px-4 py-2.5 rounded-xl flex items-center gap-2 transition shrink-0 bg-brand-600 text-white font-bold shadow-lg shadow-brand-500/20";
+            }
+
+            // Breadcrumb updates
+        const titles = {
+            intro: "Overview & Instructions",
+            part1: "First Part: B1 Reading Comprehension",
+            part2: "Second Part: Advertisement Matcher",
+            part3: "Third Part: Listening Practice",
+            part4: "Fourth Part: Full Explanation of Past Perfect Tenses",
+            part5: "Fifth Part: Grammar Assessment (25 Questions)",
+            part6: "Sixth Part: Student Answers & Teacher Submission"
+        };
+
+            const steps = { intro: 0, part1: 1, part2: 2, part3: 3, part4: 4, part5: 5, part6: 6 };
+
+            document.getElementById('pageStepBadge').innerText = `Page ${steps[tabId]} of 6`;
+            document.getElementById('pageTitleBreadcrumb').innerText = titles[tabId];
+
+            // Dots Update
+            Object.keys(steps).forEach(k => {
+                const dot = document.getElementById(`dot-${k}`);
+                if (dot) {
+                    if (k === tabId) {
+                        dot.className = "w-3 h-3 rounded-full bg-brand-400 ring-2 ring-brand-400/50 transition-all";
+                    } else {
+                        dot.className = "w-2.5 h-2.5 rounded-full bg-slate-700 transition-all";
+                    }
+                }
+            });
+
+            currentTab = tabId;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function attemptSubmitResults() {
+            const count = Object.keys(userAnswers).length;
+            const name = document.getElementById('studentNameInput').value.trim();
+
+            if (!name) {
+                showNotice("Student Name Missing", "Please enter your full name in the top panel before submitting your assessment.");
+                return;
+            }
+
+            if (count < 35) {
+                switchTab('part6'); // Will display locked message panel
+            } else {
+                switchTab('part6');
+            }
+        }
+
+        function showLockedNotice(count) {
+            document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
+            document.getElementById('page-part6').classList.remove('hidden');
+            
+            document.getElementById('resultsLockedNotice').classList.remove('hidden');
+            document.getElementById('resultsUnlockedContent').classList.add('hidden');
+
+            document.getElementById('lockedMessageDetails').innerText = 
+                `You have answered ${count} of 35 questions. Please complete the remaining ${35 - count} questions before viewing final results.`;
+        }
+
+        function jumpToFirstIncomplete() {
+            for (let i = 1; i <= 35; i++) {
+                if (!userAnswers[i]) {
+                    const qObj = questionsData.find(q => q.id === i);
+                    if (qObj) {
+                        switchTab(qObj.part.startsWith('part5') ? 'part5' : qObj.part);
+                        setTimeout(() => {
+                            const el = document.getElementById(`qcard-${i}`);
+                            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 200);
+                        return;
+                    }
+                }
+            }
+        }
+
+        // --- 6. NATIVE AMERICAN SPEECH SYNTHESIS PLAYER ---
+        function populateVoices() {
+            if (!speechSynth) return;
+            const voices = speechSynth.getVoices();
+            const picker = document.getElementById('voicePicker');
+            picker.innerHTML = '';
+
+            const usVoices = voices.filter(v => v.lang.includes('en-US') || v.lang.includes('en'));
+            usVoices.forEach(v => {
+                const opt = document.createElement('option');
+                opt.value = v.name;
+                opt.innerText = `${v.name} (${v.lang})`;
+                if (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha') || v.name.includes('David')) {
+                    opt.selected = true;
+                }
+                picker.appendChild(opt);
+            });
+        }
+
+        function toggleSpeechAudio() {
+            if (isAudioPlaying) {
+                speechSynth.pause();
+                isAudioPlaying = false;
+                updateAudioUI(false);
+            } else {
+                if (speechSynth.paused) {
+                    speechSynth.resume();
+                    isAudioPlaying = true;
+                    updateAudioUI(true);
+                } else {
+                    playNarrativeSpeech();
+                }
+            }
+        }
+
+        function playNarrativeSpeech() {
+            speechSynth.cancel();
+
+            const text = "Hello everyone, my name is David Evans! For over eight years, I had been working as a financial analyst in a bustling downtown Seattle bank. However, last year my wife and I decided to change our lifestyle completely. Before opening our zero-waste cafe, I had been feeling exhausted by long daily commutes in heavy traffic. Once we found a small space near Green Lake, everything changed. Before our grand opening in March, we had spent four months renovating the interior using recycled wooden pallets and energy-efficient appliances. My wife had been managing a organic food co-op for five years, so she knew exactly which local farmers to partner with. Yesterday before noon, we had already served over eighty cups of fair-trade coffee and sold out all our handmade vegan pastries! Leaving the banking sector was definitely the best career decision I had ever made.";
+
+            currentUtterance = new SpeechSynthesisUtterance(text);
+            currentUtterance.rate = 0.95; // Natural speaking rate
+            currentUtterance.pitch = 1.0;
+
+            const voices = speechSynth.getVoices();
+            const selectedName = document.getElementById('voicePicker').value;
+            const matchedVoice = voices.find(v => v.name === selectedName);
+            if (matchedVoice) currentUtterance.voice = matchedVoice;
+
+            currentUtterance.onstart = () => {
+                isAudioPlaying = true;
+                updateAudioUI(true);
+            };
+
+            currentUtterance.onend = () => {
+                isAudioPlaying = false;
+                updateAudioUI(false);
+            };
+
+            currentUtterance.onerror = () => {
+                isAudioPlaying = false;
+                updateAudioUI(false);
+            };
+
+            speechSynth.speak(currentUtterance);
+        }
+
+        function stopSpeechAudio() {
+            if (speechSynth) speechSynth.cancel();
+            isAudioPlaying = false;
+            updateAudioUI(false);
+        }
+
+        function updateAudioUI(playing) {
+            const icon = document.getElementById('audioIcon');
+            const sub = document.getElementById('audioSubStatus');
+            const eqBars = [1,2,3,4,5].map(i => document.getElementById(`eq${i}`));
+
+            if (playing) {
+                icon.className = "fa-solid fa-pause";
+                sub.innerText = "Playing American English Narration...";
+                eqBars.forEach(b => b && b.classList.add('eq-bar'));
+            } else {
+                icon.className = "fa-solid fa-play ml-1";
+                sub.innerText = "Click Play to listen (~1:30 min narrative)";
+                eqBars.forEach(b => b && b.classList.remove('eq-bar'));
+            }
+        }
+
+        function toggleTranscriptBox() {
+            const box = document.getElementById('transcriptBoxPanel');
+            const txt = document.getElementById('transcriptToggleText');
+            if (box.classList.contains('hidden')) {
+                box.classList.remove('hidden');
+                txt.innerText = "Hide Audio Transcript";
+            } else {
+                box.classList.add('hidden');
+                txt.innerText = "Show Audio Transcript";
+            }
+        }
+
+        // --- 7. RESULTS GENERATOR ENGINE ---
+        function buildResultsSheet() {
+            document.getElementById('resultsLockedNotice').classList.add('hidden');
+            document.getElementById('resultsUnlockedContent').classList.remove('hidden');
+
+            const name = document.getElementById('studentNameInput').value.trim() || 'Student';
+            const today = document.getElementById('autoDateDisplay').innerText;
+
+            document.getElementById('resultsNameDisplay').innerText = name;
+            document.getElementById('resultsDateDisplay').innerText = `Completed on ${today}`;
+
+            let correctCount = 0;
+            let summaryStringArray = [];
+            let itemizedHtml = '';
+
+            questionsData.forEach(q => {
+                const userAns = (userAnswers[q.id] || '').trim();
+                let isCorrect = false;
+
+                if (q.type === 'open') {
+                    isCorrect = q.correctAnswers.some(ans => ans.toLowerCase() === userAns.toLowerCase());
+                } else {
+                    isCorrect = (userAns.toUpperCase() === q.correct.toUpperCase());
+                }
+
+                if (isCorrect) correctCount++;
+
+                const symbol = isCorrect ? '✓' : '✗';
+                const displayVal = userAns || 'No Answer';
+                summaryStringArray.push(`${q.id}. ${displayVal} ${symbol}`);
+
+                // Build itemized card HTML
+                itemizedHtml += `
+                    <div class="glass-card p-4 rounded-xl border ${isCorrect ? 'border-emerald-500/30 bg-emerald-950/10' : 'border-rose-500/30 bg-rose-950/10'} text-xs space-y-1.5">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-white">Q${q.id}. ${q.text}</span>
+                            <span class="font-bold px-2 py-0.5 rounded text-[11px] ${isCorrect ? 'bg-emerald-500/20 text-emerald-300' : 'bg-rose-500/20 text-rose-300'}">
+                                ${symbol} ${isCorrect ? 'Correct' : 'Incorrect'}
+                            </span>
+                        </div>
+                        <div class="text-[11px] text-slate-300 flex flex-wrap gap-4">
+                            <span>Your Answer: <strong class="${isCorrect ? 'text-emerald-400' : 'text-rose-400'}">${displayVal}</strong></span>
+                            <span>Correct Answer: <strong class="text-brand-400">${q.type === 'open' ? q.displayCorrect : q.correct}</strong></span>
+                        </div>
+                        <p class="text-[10px] text-slate-400 italic">${q.explanation}</p>
+                    </div>
+                `;
+            });
+
+            const percent = Math.round((correctCount / 35) * 100);
+            document.getElementById('scorePercentDisplay').innerText = `${percent}%`;
+            document.getElementById('scoreRatioDisplay').innerText = `${correctCount} / 35`;
+
+            // Set Compact Preview Text
+            const compactString = `[English Family Test] ${name} | Score: ${percent}% (${correctCount}/35) | Answers: ` + summaryStringArray.join(' | ');
+            document.getElementById('clipboardPreview').value = compactString;
+
+            // Set Itemized List
+            document.getElementById('itemizedReviewList').innerHTML = itemizedHtml;
+        }
+
+        // --- 8. SUBMISSION ACTIONS ---
+        function sendTeacherEmail() {
+            const name = document.getElementById('studentNameInput').value.trim() || 'Student';
+            const today = document.getElementById('autoDateDisplay').innerText;
+            const compactString = document.getElementById('clipboardPreview').value;
+
+            const teacherEmail = "Danielenglishclasses23@gmail.com";
+            const subject = encodeURIComponent(`English Family Assessment Results - ${name}`);
+            const body = encodeURIComponent(`Hello Teacher Daniel,\n\nHere are my final B1 assessment results:\n\nStudent Name: ${name}\nDate: ${today}\nTotal Score: ${document.getElementById('scorePercentDisplay').innerText} (${document.getElementById('scoreRatioDisplay').innerText})\n\nItemized Compact Summary:\n${compactString}\n\nBest regards,\n${name}`);
+
+            window.location.href = `mailto:${teacherEmail}?subject=${subject}&body=${body}`;
+        }
+
+        function copyCompactSummary() {
+            const text = document.getElementById('clipboardPreview').value;
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showNotice("Copied to Clipboard", "Your concise answer sheet (e.g., 1. B ✓ | 2. A ✗) has been copied successfully.");
+            } catch (err) {
+                showNotice("Copy Failed", "Please manually highlight and copy the preview text block.");
+            }
+            document.body.removeChild(textarea);
+        }
+
+        // --- 9. MODAL HELPER ---
+        function showNotice(title, body) {
+            document.getElementById('modalNoticeTitle').innerText = title;
+            document.getElementById('modalNoticeBody').innerText = body;
+            document.getElementById('modalNotice').classList.remove('hidden');
+        }
+
+        function closeModalNotice() {
+            document.getElementById('modalNotice').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
